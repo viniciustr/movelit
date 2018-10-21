@@ -5,15 +5,7 @@
 
     <div id="map" style="clear:both; min-height:400px;"></div>
 
-    <script>
-        var map;
-        function initMap() {
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: -34.397, lng: 150.644},
-                zoom: 8
-            });
-        }
-    </script>
+    <script type="text/javascript" src="/static/js/maps.js"></script>
 
     <!-- Google Maps API -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcQgKNjMyOF3KiPmLu7IDitKWwEHwDnIQ&libraries=places&callback=initMap"></script>
