@@ -1,5 +1,57 @@
-{% extends 'layouts/form.html' %}
+{% extends 'layouts/main.html' %}
 {% block title %}Levantamento de perfil{% endblock %}
 {% block content %}
-  <h1>Meu form vai aqui!</h1>
+
+<form method="post">
+    <div id="rootwizard">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container">
+                    <ul>
+                        <li><a href="#tab1" data-toggle="tab">First</a></li>
+                        <li><a href="#tab2" data-toggle="tab">Second</a></li>
+                        <li><a href="#tab3" data-toggle="tab">Third</a></li>
+                        <li><a href="#tab4" data-toggle="tab">Forth</a></li>
+                        <li><a href="#tab5" data-toggle="tab">Fifth</a></li>
+                        <li><a href="#tab6" data-toggle="tab">Sixth</a></li>
+                        <li><a href="#tab7" data-toggle="tab">Seventh</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="bar" class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+        </div>
+        <div class="tab-content">
+
+                <div class="tab-pane" id="tab1">
+                    {{ form.name(class_ = 'form-control first-input', placeholder = form.name.label.text, required = true, autofocus = true) }}
+                    <!-- <input type="submit" value="Register" class="btn btn-primary btn-lg btn-block"  disabled> -->
+                </div>
+                <div class="tab-pane" id="tab2">
+                    2
+                </div>
+                <div class="tab-pane" id="tab3">
+                    3
+                </div>
+                <div class="tab-pane" id="tab4">
+                    4
+                </div>
+                <div class="tab-pane" id="tab5">
+                    5
+                </div>
+                <div class="tab-pane" id="tab6">
+                    6
+                </div>
+                <div class="tab-pane" id="tab7">
+                    7
+                </div>
+
+            <ul class="pager wizard">
+                <li class="previous"><a href="#">Voltar</a></li>
+                <li class="next"><a href="#">Próximo</a></li>
+            </ul>
+        </div>
+    </div>
+</form>
 {% endblock %}

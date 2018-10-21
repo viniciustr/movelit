@@ -37,4 +37,19 @@ a {
   height: 100%;
 }
 
+#rootwizard .progress-bar {
+  background-image: linear-gradient(to bottom,#ff8888 0,#ff8888 100%);
+}
+
+#rootwizard li.previous > a{
+  border: none;
+  color: #888888;
+}
+
+#rootwizard li.next > a{
+  background-color: #ff8888;
+  color: #ffffff;
+  font-weight: bold;
+}
+
 /* Various other styles end */
