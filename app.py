@@ -1,13 +1,18 @@
+# encoding: utf-8
 #----------------------------------------------------------------------------#
 # Imports
 #----------------------------------------------------------------------------#
 
+import os
+import urllib
+import flask
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
+from forms import *
+import services
+
 import logging
 from logging import Formatter, FileHandler
-from forms import *
-import os
 
 #----------------------------------------------------------------------------#
 # App Config.
@@ -51,33 +56,34 @@ def about():
     return render_template('pages/placeholder.about.html')
 
 
-@app.route('/login')
-def login():
-    form = LoginForm(request.form)
-    return render_template('forms/login.html', form=form)
-
-
-@app.route('/register')
-def register():
-    form = RegisterForm(request.form)
-    return render_template('forms/register.html', form=form)
-
-
-@app.route('/forgot')
-def forgot():
-    form = ForgotForm(request.form)
-    return render_template('forms/forgot.html', form=form)
-
-
 @app.route('/questions')
 def questions():
     form = QuestionsForm(request.form)
-    return render_template('forms/questions.html', form=form)
+
+    # if request.method == "GET":
+    #     return render_template('forms/questions.html', form=form)
+
+    # form is being submitted, so do the analysis and redirect to results
+    qs = urllib.urlencode({
+        'user_name': "Fulano",
+        'district_ids': "3,4,5"
+    })
+    return flask.redirect('/results?{}'.format(qs))
 
 
 @app.route('/results')
 def results():
-    return render_template('pages/map_results.html')
+
+    if len(request.args) > 0:
+        user_name = request.args['user_name']
+        district_ids = [int(did) for did in request.args['district_ids'].split(',')]
+        district_names = services.fetch_district_names(district_ids)
+
+    return render_template(
+        'pages/map_results.html',
+         user_name=user_name or None,
+         selected_districts=district_names or None
+    )
 
 
 # Error handlers.

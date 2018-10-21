@@ -10,13 +10,13 @@
             <img src="/static/img/nov-01.png" width="120" height="120"/>
         </div>
         <div class="row">
-            Ana, de acordo com o seu perfil, as melhores regiões para você em São Paulo são:
+            {{ user_name }}, de acordo com o seu perfil, as melhores regiões para você em São Paulo são:
         </div>
         <div class="row">
             <ul>
-                <li>Pinheiros</li>
-                <li>Butantã</li>
-                <li>Moema</li>
+                {% for district in selected_districts %}
+                    <li><strong>{{ district }}</strong></li>
+                {% endfor %}
             </ul>
         </div>
     </div>
@@ -28,5 +28,11 @@
 
     <!-- Google Maps API -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcQgKNjMyOF3KiPmLu7IDitKWwEHwDnIQ&libraries=places&callback=initMap"></script>
+
+    <script type="text/javascript">
+        {% for district in selected_districts %}
+            locatePlaceInMap('{{district}}, São Paulo - SP');
+        {% endfor %}
+    </script>
 
 {% endblock %}

@@ -7,15 +7,11 @@ function initMap() {
 
     map = new google.maps.Map(document.getElementById('map'), {
         center: mapCenter,
-        zoom: 11
+        zoom: 10
     });
 
     infoWindow = new google.maps.InfoWindow();
     service = new google.maps.places.PlacesService(map);
-
-    // locatePlaceInMap('Alto da Boa Vista, São Paulo - SP');
-    // locatePlaceInMap('Barra Funda, São Paulo - SP');
-    // locatePlaceInMap('Cidade Tiradentes, São Paulo - SP');
 }
 
 function locatePlaceInMap(query) {
