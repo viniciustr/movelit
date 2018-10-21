@@ -33,4 +33,8 @@ a {
  * Various other styles
  ****************************************************************************/
 
+#map {
+  height: 100%;
+}
+
 /* Various other styles end */
