@@ -2,8 +2,27 @@
 {% block title %}Resultados{% endblock %}
 {% block content %}
 
-
-    <div id="map" style="clear:both; min-height:400px;"></div>
+    <div id="map-feedback" class="col-md-2">
+        <div class="row title">
+            <h2>Pronto!</h2>
+        </div>
+        <div class="row">
+            <img src="/static/img/nov-01.png" width="120" height="120"/>
+        </div>
+        <div class="row">
+            Ana, de acordo com o seu perfil, as melhores regiões para você em São Paulo são:
+        </div>
+        <div class="row">
+            <ul>
+                <li>Pinheiros</li>
+                <li>Butantã</li>
+                <li>Moema</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-10">
+        <div id="map" style="clear:both; min-height:400px;"></div>
+    </div>
 
     <script type="text/javascript" src="/static/js/maps.js"></script>
 

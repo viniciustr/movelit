@@ -46,10 +46,30 @@ a {
   color: #888888;
 }
 
-#rootwizard li.next > a{
+#rootwizard li.next > a {
   background-color: #ff8888;
   color: #ffffff;
   font-weight: bold;
+}
+
+#rootwizard li.finish > a {
+  background-color: #ff8888;
+  color: #ffffff;
+  font-weight: bold;
+  float: right;
+}
+
+#map-feedback .title {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+#map-feedback img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Various other styles end */
