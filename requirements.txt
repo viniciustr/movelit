@@ -1,8 +1,13 @@
+flask>=1.0.0
+werkzeug>=0.15.3
+SQLAlchemy>=1.3.0
+Jinja2>=2.10.1
 Fabric
 Flask-SQLAlchemy
 Flask-WTF
 WTForms
 coverage
 # ecdsa
-# paramiko
+paramiko>=2.0.9
 # pycrypto
+gunicorn>=19.5.0

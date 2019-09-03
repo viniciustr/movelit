@@ -60,15 +60,16 @@ def about():
 def questions():
     form = QuestionsForm(request.form)
 
-    # if request.method == "GET":
-    #     return render_template('forms/questions.html', form=form)
+    if request.method == "GET":
+        return render_template('forms/questions.html', form=form)
 
-    # form is being submitted, so do the analysis and redirect to results
-    qs = urllib.urlencode({
-        'user_name': "Fulano",
-        'district_ids': "3,4,5"
-    })
-    return flask.redirect('/results?{}'.format(qs))
+    elif request.method == "POST":
+        # form is being submitted, so do the analysis and redirect to results
+        qs = urllib.parse.urlencode({
+            'user_name': "Fulano",
+            'district_ids': "3,4,5"
+        })
+        return flask.redirect('/results?{}'.format(qs))
 
 
 @app.route('/results')
